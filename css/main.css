@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?famile=Montserrat:400,700');
+
+body, html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-template-columns: 15% auto;
+  grid-template-areas: 
+    "sidebar right" 
+    "footer footer";
+}
+
+a {
+  text-decoration: none;
+}
+
+ul#navbar {
+  list-style-type: none;
+  margin: auto 5%;
+}
+
+nav {
+  display: grid;
+  justify-items: end;
+}
+ul li {
+  display: inline;
+}
+
+ul li a {
+  color: white;
+  padding: 15px;
+}
+
+#logo {
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+}
+
+#fe {
+  width: 65px;
+}
+
+img#smithing {
+  width: 200px;
+  height: 200px;
+}
+
+img#coding {
+  width: 200px;
+  height: 200px;
+}
+
+header {
+  background-color: #1d1d1d;
+  max-height: 100px;
+  grid-area: head;
+  display: grid;
+  grid-template-columns: [logo-start] fit-content(20%) [nav-start] auto [nav-end];
+}
+
+section#smithing {
+  background-color: blanchedalmond;
+  padding: 2em;
+  border-top: 5px solid #F19C22;
+  grid-area: smithing;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 2rem;
+}
+section#coding {
+  background-color: blanchedalmond;
+  padding: 2em;
+  border-top: 5px solid #F19C22;
+  border-bottom: 5px solid #F19C22;
+  grid-area: coding;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-column-gap: 2rem;
+}
+
+img {
+  max-width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: black;
+  color: white;
+  padding: 1em;
+}
+
+.main {
+  grid-area: right;
+  grid-template-rows: 100px fit-content(30%) 40% auto;
+  display: grid;
+  grid-template-areas: 
+    "head"
+    "smithing"
+    "coding"
+    "features"
+}
+
+footer {
+  grid-area: footer;
+  background: #1d1d1d;
+  color: white;
+  text-align: center
+}
+
+#features {
+  grid-area: features;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  text-align: center;
+}
+
+#features i {
+  font-size: 2em;
+}
+
+ul#features {
+  margin: 0;
+  padding: 0;
+}
+
+ul#features li {
+  background-color: white;
+  color: #4c4c4c;
+  padding: 1em;
+}
+
+@media screen and (max-width: 60em) {
+  .sidebar {
+    display: none;
+  }
+  body {
+    grid-template-columns: auto;
+    grid-template-areas: 
+      "right" 
+      "footer";
+  }
+  #features {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+  }
+  ul#features li:nth-child(5) {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .main {
+    grid-template-rows: auto fit-content(30%) 40% auto; 
+  }
+}
